@@ -1,280 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FoodLand Menu</title>
 
 <style>
 body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#000;
-    color:#fff;
+margin:0;
+font-family:Arial;
+background:#000;
+color:white;
 }
 .container{
-    width:90%;
-    margin:auto;
-    padding:20px 0;
+width:90%;
+margin:auto;
+padding:20px 0;
 }
-.section-title{
-    text-align:center;
-    font-size:28px;
-    margin:40px 0 20px;
-    color:#ffc107;
+.title{
+text-align:center;
+font-size:26px;
+margin:35px 0 20px;
+color:gold;
 }
 .card{
-    background:#111;
-    border-radius:20px;
-    overflow:hidden;
-    margin-bottom:25px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.6);
-    transition:0.3s;
-}
-.card:hover{
-    transform:scale(1.03);
+background:#111;
+border-radius:20px;
+overflow:hidden;
+margin-bottom:25px;
+box-shadow:0 5px 15px rgba(0,0,0,0.6);
 }
 .card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
+width:100%;
+height:200px;
+object-fit:cover;
 }
-.card-content{
-    text-align:center;
-    padding:15px;
+.content{
+text-align:center;
+padding:15px;
 }
 .price{
-    color:#00e676;
-    font-size:18px;
-    font-weight:bold;
+color:#00ff88;
+font-weight:bold;
+font-size:18px;
 }
 </style>
 </head>
-
 <body>
 <div class="container">
-
-<!-- BURGER -->
-<div class="section-title">🍔 Burger</div>
+ <div class="title">🍔 Burger</div>
 
 <div class="card">
-<img src="https://source.unsplash.com/600x400/?burger">
-<div class="card-content">
-<h3>Veg Aloo Tikki</h3>
-<div class="price">₹49</div>
-</div>
+<img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg">
+<div class="content"><h3>Veg Aloo Tikki</h3><div class="price">₹49</div></div>
 </div>
 
 <div class="card">
-<img src="https://source.unsplash.com/600x400/?cheese-burger">
-<div class="card-content">
-<h3>Veg Cheese Aloo Tikki</h3>
-<div class="price">₹65</div>
-</div>
+<img src="https://images.pexels.com/photos/2983099/pexels-photo-2983099.jpeg">
+<div class="content"><h3>Veg Cheese Aloo Tikki</h3><div class="price">₹65</div></div>
 </div>
 
 <div class="card">
-<img src="https://source.unsplash.com/600x400/?paneer-burger">
-<div class="card-content">
-<h3>Spicy Paneer</h3>
-<div class="price">₹69</div>
+<img src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg">
+<div class="content"><h3>Spicy Paneer</h3><div class="price">₹69</div></div>
 </div>
+
+<div class="title">🌯 Wrap</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg">
+<div class="content"><h3>Veg Wrap</h3><div class="price">₹40</div></div>
 </div>
 
 <div class="card">
-<img src="https://source.unsplash.com/600x400/?big-burger">
-<div class="card-content">
-<h3>FoodLand Special Burger</h3>
-<div class="price">₹99</div>
-</div>
+<img src="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg">
+<div class="content"><h3>Paneer Wrap</h3><div class="price">₹80</div></div>
 </div>
 
-<!-- WRAP -->
-<div class="section-title">🌯 Wrap</div>
+<div class="title">🥤 Shakes</div>
 
 <div class="card">
-<img src="https://source.unsplash.com/600x400/?veg-wrap">
-<div class="card-content">
-<h3>Veg Wrap</h3>
-<div class="price">₹40</div>
-</div>
+<img src="https://images.pexels.com/photos/5946631/pexels-photo-5946631.jpeg">
+<div class="content"><h3>Oreo Shake</h3><div class="price">₹60</div></div>
 </div>
 
 <div class="card">
-<img src="https://source.unsplash.com/600x400/?aloo-wrap">
-<div class="card-content">
-<h3>Aloo Tikki Wrap</h3>
-<div class="price">₹50</div>
+<img src="https://images.pexels.com/photos/103566/pexels-photo-103566.jpeg">
+<div class="content"><h3>Cold Drink</h3><div class="price">On MRP</div></div>
 </div>
+
+<div class="title">🥟 Momos</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg">
+<div class="content"><h3>Steam Momos</h3><div class="price">₹40</div></div>
 </div>
 
 <div class="card">
-<img src="https://source.unsplash.com/600x400/?paneer-wrap">
-<div class="card-content">
-<h3>Paneer Wrap</h3>
-<div class="price">₹80</div>
+<img src="https://images.pexels.com/photos/4611985/pexels-photo-4611985.jpeg">
+<div class="content"><h3>Fried Momos</h3><div class="price">₹50</div></div>
 </div>
-</div>
-
-<!-- DRINKS -->
-<div class="section-title">🥤 Drinks & Shakes</div>
+ <div class="title">🍕 Pizza</div>
 
 <div class="card">
-<img src="https://source.unsplash.com/600x400/?soft-drink">
-<div class="card-content">
-<h3>Cold Drink</h3>
-<div class="price">On MRP</div>
-</div>
+<img src="https://images.pexels.com/photos/4109123/pexels-photo-4109123.jpeg">
+<div class="content"><h3>Margherita Pizza</h3><div class="price">₹99</div></div>
 </div>
 
 <div class="card">
-<img src="https://source.unsplash.com/600x400/?oreo-milkshake">
-<div class="card-content">
-<h3>Oreo Shake</h3>
-<div class="price">₹60</div>
+<img src="https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg">
+<div class="content"><h3>Paneer Pizza</h3><div class="price">₹129</div></div>
 </div>
+
+<div class="title">🍲 Mini Break</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg">
+<div class="content"><h3>Simple Poha</h3><div class="price">₹25</div></div>
 </div>
 
 <div class="card">
-<img src="https://source.unsplash.com/600x400/?kitkat-milkshake">
-<div class="card-content">
-<h3>Kitkat Shake</h3>
-<div class="price">₹70</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?chocolate-milkshake">
-<div class="card-content">
-<h3>Dark Chocolate Shake</h3>
-<div class="price">₹79</div>
-</div>
-</div>
-
-<!-- MOMOS -->
-<div class="section-title">🥟 Momos</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?momos">
-<div class="card-content">
-<h3>Steam Momos</h3>
-<div class="price">₹40</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?fried-momos">
-<div class="card-content">
-<h3>Fried Momos</h3>
-<div class="price">₹50</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?paneer-momos">
-<div class="card-content">
-<h3>Paneer Steam</h3>
-<div class="price">₹60</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?afghani-momos">
-<div class="card-content">
-<h3>Afghani Momos</h3>
-<div class="price">₹99</div>
-</div>
-</div>
-
-<!-- PIZZA -->
-<div class="section-title">🍕 Pizza</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?margherita-pizza">
-<div class="card-content">
-<h3>Margherita (Small)</h3>
-<div class="price">₹99</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?margherita-pizza">
-<div class="card-content">
-<h3>Margherita (Medium)</h3>
-<div class="price">₹149</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?paneer-pizza">
-<div class="card-content">
-<h3>Paneer Pizza</h3>
-<div class="price">₹129</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?special-pizza">
-<div class="card-content">
-<h3>FoodLand Special</h3>
-<div class="price">₹149 / ₹199</div>
-</div>
-</div>
-
-<!-- MINI BREAK -->
-<div class="section-title">🍲 Mini Break</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?poha">
-<div class="card-content">
-<h3>Simple Poha</h3>
-<div class="price">₹25</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?pav-bhaji">
-<div class="card-content">
-<h3>Pav Bhaji</h3>
-<div class="price">₹80</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?bhelpuri">
-<div class="card-content">
-<h3>Bikaneri Bhelpuri</h3>
-<div class="price">₹30</div>
-</div>
-</div>
-
-<!-- FRIES -->
-<div class="section-title">🍟 Fries</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?french-fries">
-<div class="card-content">
-<h3>Fries With Sauce</h3>
-<div class="price">₹50</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?peri-peri-fries">
-<div class="card-content">
-<h3>Peri Peri Fries</h3>
-<div class="price">₹60</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://source.unsplash.com/600x400/?masala-fries">
-<div class="card-content">
-<h3>Peri Peri Masala Fries</h3>
-<div class="price">₹80</div>
-</div>
+<img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg">
+<div class="content"><h3>French Fries</h3><div class="price">₹50</div></div>
 </div>
 
 </div>
 </body>
-</html>
+</html>   
