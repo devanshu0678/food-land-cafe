@@ -1,292 +1,127 @@
-
-</style>
-</head>
-
-<body>
-
-<header>
-<h1>The Foodland Cafe</h1>
-<p>Fresh & Tasty Food</p>
-</header>
-
-<h2>Our Full Menu</h2>
-
-<div class="category">🍔 Burger</div>
-<div class="menu">
-
-<div class="card">
-<h4>Veg Aloo Tikki</h4>
-<p class="price">₹49</p>
-</div>
-
-<div class="card">
-<h4>Veg Cheese Aloo Tikki</h4>
-<p class="price">₹65</p>
-</div>
-
-<div class="card">
-<h4>Spicy Paneer Burger</h4>
-<p class="price">₹69</p>
-</div>
-
-<div class="card">
-<h4>Foodland Special Burger</h4>
-<p class="price">₹99</p>
-</div>
-
-</div>
-
-<div class="category">🥪 Sandwich</div>
-<div class="menu">
-
-<div class="card">
-<h4>Veg Sandwich</h4>
-<p class="price">₹39</p>
-</div>
-
-<div class="card">
-<h4>Paneer Sandwich</h4>
-<p class="price">₹99</p>
-</div>
-
-</div>
-
-<div class="category">🍜 Chinese</div>
-<div class="menu">
-
-<div class="card">
-<h4>Veg Chowmein</h4>
-<p class="price">₹40</p>
-</div>
-
-<div class="card">
-<h4>Veg Manchurian</h4>
-<p class="price">₹100</p>
-</div>
-
-</div>
-
-<div class="category">🍕 Pizza</div>
-<div class="menu">
-
-<div class="card">
-<h4>Margherita Pizza</h4>
-<p class="price">₹99</p>
-</div>
-
-</div>
-
-<div class="category">☕ Beverage</div>
-<div class="menu">
-
-<div class="card">
-<h4>Tea</h4>
-<p class="price">₹10</p>
-</div>
-
-<div class="card">
-<h4>Cold Coffee</h4>
-<p class="price">₹49</p>
-</div>
-
-</div>
-
-</body>
-</html>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>The Foodland Cafe</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodLand Menu</title>
 
 <style>
 body{
-margin:0;
-font-family: 'Segoe UI', sans-serif;
-background:#0f0f0f;
-color:white;
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#000;
+    color:#fff;
 }
 
-header{
-background:linear-gradient(135deg,#5a3e2b,#8b5e3c);
-text-align:center;
-padding:30px 15px;
+.container{
+    width:90%;
+    margin:auto;
+    padding:20px 0;
 }
 
-h1{margin:0;}
-h2{text-align:center;margin-top:40px;color:#00ff99;}
-
-.category{
-text-align:center;
-margin-top:30px;
-font-size:22px;
-color:#ffcc00;
-}
-
-.menu{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-gap:18px;
-padding:20px;
+.section-title{
+    text-align:center;
+    font-size:28px;
+    margin:35px 0 20px;
+    color:#ffc107;
 }
 
 .card{
-background:#1b1b1b;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 6px 15px rgba(0,0,0,0.6);
-text-align:center;
-transition:0.3s;
+    background:#111;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.5);
+    transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-5px);
+    transform:scale(1.03);
 }
 
 .card img{
-width:100%;
-height:150px;
-object-fit:cover;
+    width:100%;
+    height:220px;
+    object-fit:cover;
 }
 
-.card h4{
-margin:10px 0 5px;
+.card-content{
+    padding:15px;
+    text-align:center;
+}
+
+.card-content h3{
+    margin:10px 0;
+    font-size:20px;
 }
 
 .price{
-color:#00ff88;
-font-weight:bold;
-margin-bottom:10px;
-}
-
-.whatsapp-btn{
-display:block;
-width:220px;
-margin:30px auto;
-padding:12px;
-text-align:center;
-background:#25D366;
-color:white;
-text-decoration:none;
-border-radius:30px;
-font-size:16px;
-font-weight:bold;
-}
-
-footer{
-background:#111;
-text-align:center;
-padding:20px;
-margin-top:40px;
-font-size:14px;
-color:#aaa;
+    color:#00e676;
+    font-size:18px;
+    font-weight:bold;
 }
 </style>
 </head>
 
 <body>
+<div class="container">
 
-<header>
-<h1>The Foodland Cafe</h1>
-<p>Fresh & Tasty Food | Order Ready in 15-20 Minutes</p>
-</header>
+<!-- BURGER -->
+<div class="section-title">🍔 Burger</div>
 
-<h2>Our Full Menu</h2>
+<div class="card"><img src="https://source.unsplash.com/600x400/?burger"><div class="card-content"><h3>Veg Aloo Tikki</h3><div class="price">₹49</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?cheese-burger"><div class="card-content"><h3>Veg Cheese Aloo Tikki</h3><div class="price">₹65</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?paneer-burger"><div class="card-content"><h3>Spicy Paneer Burger</h3><div class="price">₹69</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?special-burger"><div class="card-content"><h3>Foodland Special Burger</h3><div class="price">₹99</div></div></div>
 
-<!-- Burger -->
-<div class="category">🍔 Burger</div>
-<div class="menu">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-<h4>Veg Aloo Tikki</h4>
-<p class="price">₹49</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
-<h4>Veg Cheese Aloo Tikki</h4>
-<p class="price">₹65</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
-<h4>Spicy Paneer Burger</h4>
-<p class="price">₹69</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b">
-<h4>Foodland Special Burger</h4>
-<p class="price">₹99</p>
-</div>
-</div>
+<!-- WRAP -->
+<div class="section-title">🌯 Wrap</div>
 
-<!-- Sandwich -->
-<div class="category">🥪 Sandwich</div>
-<div class="menu">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1553909489-cd47e0907980">
-<h4>Veg Sandwich</h4>
-<p class="price">₹39</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af">
-<h4>Paneer Sandwich</h4>
-<p class="price">₹99</p>
-</div>
-</div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?veg-wrap"><div class="card-content"><h3>Veg Wrap</h3><div class="price">₹40</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?aloo-wrap"><div class="card-content"><h3>Aloo Tikki Wrap</h3><div class="price">₹50</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?paneer-wrap"><div class="card-content"><h3>Paneer Wrap</h3><div class="price">₹80</div></div></div>
 
-<!-- Chinese -->
-<div class="category">🍜 Chinese</div>
-<div class="menu">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246">
-<h4>Veg Chowmein</h4>
-<p class="price">₹40</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
-<h4>Veg Manchurian</h4>
-<p class="price">₹100</p>
-</div>
-</div>
+<!-- DRINKS -->
+<div class="section-title">🥤 Drinks & Shakes</div>
 
-<!-- Pizza -->
-<div class="category">🍕 Pizza</div>
-<div class="menu">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1601924582975-7e8b0a9c8a45">
-<h4>Margherita Pizza</h4>
-<p class="price">₹99</p>
-</div>
-</div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?cold-drink"><div class="card-content"><h3>Cold Drink (As You Like)</h3><div class="price">On MRP</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?oreo-shake"><div class="card-content"><h3>Oreo Shake</h3><div class="price">₹60</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?kitkat-shake"><div class="card-content"><h3>Kitkat Shake</h3><div class="price">₹70</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?chocolate-shake"><div class="card-content"><h3>Dark Chocolate Shake</h3><div class="price">₹79</div></div></div>
 
-<!-- Beverage -->
-<div class="category">☕ Beverage</div>
-<div class="menu">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
-<h4>Tea</h4>
-<p class="price">₹10</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1498804103079-a6351b050096">
-<h4>Cold Coffee</h4>
-<p class="price">₹49</p>
-</div>
-</div>
+<!-- MOMOS -->
+<div class="section-title">🥟 Momos</div>
 
-<a class="whatsapp-btn" href="https://wa.me/918442004815">Order on WhatsApp</a>
+<div class="card"><img src="https://source.unsplash.com/600x400/?momos"><div class="card-content"><h3>Steam Momos</h3><div class="price">₹40</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?fried-momos"><div class="card-content"><h3>Fried Momos</h3><div class="price">₹50</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?paneer-momos"><div class="card-content"><h3>Paneer Steam</h3><div class="price">₹60</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?paneer-fried-momos"><div class="card-content"><h3>Paneer Fried</h3><div class="price">₹69</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?kurkure-momos"><div class="card-content"><h3>Kurkure Momos</h3><div class="price">₹75</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?afghani-momos"><div class="card-content"><h3>Afghani Momos</h3><div class="price">₹99</div></div></div>
 
-<footer>
-📍 Shree Radhe Complex, Near SBI Bank, Govindgarh, Jaipur  
-<br>
-📞 +91 8442004815  
-<br><br>
-© 2026 The Foodland Cafe | Instagram @the_foodland_cafe00
-</footer>
+<!-- PIZZA -->
+<div class="section-title">🍕 Pizza</div>
 
+<div class="card"><img src="https://source.unsplash.com/600x400/?margherita-pizza"><div class="card-content"><h3>Margherita (S)</h3><div class="price">₹99</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?margherita-pizza"><div class="card-content"><h3>Margherita (M)</h3><div class="price">₹149</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?corn-pizza"><div class="card-content"><h3>Corn / Cheese Corn</h3><div class="price">₹79 / ₹99</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?paneer-pizza"><div class="card-content"><h3>Paneer Pizza</h3><div class="price">₹129</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?special-pizza"><div class="card-content"><h3>FoodLand Special</h3><div class="price">₹149 / ₹199</div></div></div>
+
+<!-- MINI BREAK -->
+<div class="section-title">🍲 Mini Break</div>
+
+<div class="card"><img src="https://source.unsplash.com/600x400/?poha"><div class="card-content"><h3>Simple Poha</h3><div class="price">₹25</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?pav-bhaji"><div class="card-content"><h3>Pav Bhaji</h3><div class="price">₹80</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?bhelpuri"><div class="card-content"><h3>Bikaneri Bhelpuri</h3><div class="price">₹30</div></div></div>
+
+<!-- FRIES -->
+<div class="section-title">🍟 Fries</div>
+
+<div class="card"><img src="https://source.unsplash.com/600x400/?french-fries"><div class="card-content"><h3>Fries With Sauce</h3><div class="price">₹50</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?peri-peri-fries"><div class="card-content"><h3>Peri Peri Fries</h3><div class="price">₹60</div></div></div>
+<div class="card"><img src="https://source.unsplash.com/600x400/?masala-fries"><div class="card-content"><h3>Peri Peri Masala Fries</h3><div class="price">₹80</div></div></div>
+
+</div>
 </body>
 </html>
- <img src="images/veg-burger.jpg">
- <img src="images/pizza.jpg">
- <img src="images/sandwich.jpg">
- <img src="images/noodles.jpg">
- <img src="images/tea.jpg">
