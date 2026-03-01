@@ -410,3 +410,22 @@ window.open("https://wa.me/"+phone+"?text="+message,"_blank");
 </div>
 
 </div>
+<script>
+function orderNow(item, price){
+
+let name = prompt("Enter Your Name:");
+if(!name) return;
+
+let address = prompt("Enter Delivery Address:");
+if(!address) return;
+
+let phone="918442004815";
+
+let message = "Hello Foodland Cafe,%0A%0A"
++ "My Name: " + name + "%0A"
++ "My Order: " + item + " - ₹" + price + "%0A"
++ "Delivery Address: " + address;
+
+window.open("https://wa.me/"+phone+"?text="+message,"_blank");
+}
+</script>
