@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,74 +7,62 @@
 <style>
 body{
 margin:0;
-font-family:'Segoe UI',sans-serif;
-background:#0f0f0f;
+font-family:Arial, sans-serif;
+background:#111;
 color:white;
 }
 
 header{
-background:linear-gradient(135deg,#5a3e2b,#8b5e3c);
+background:#8b5e3c;
+padding:20px;
 text-align:center;
-padding:30px 15px;
 }
 
-h1{margin:0;font-size:28px;}
-h2{text-align:center;margin-top:40px;color:#00ff99;}
+h1{margin:0;}
 
 .category{
 text-align:center;
-margin-top:35px;
+margin-top:40px;
 font-size:22px;
 color:#ffcc00;
 }
 
 .menu{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-gap:18px;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:15px;
 padding:20px;
 }
 
 .card{
-background:#1b1b1b;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 6px 15px rgba(0,0,0,0.6);
-text-align:center;
-transition:0.3s;
+background:#1c1c1c;
+border-radius:12px;
 padding-bottom:15px;
-}
-
-.card:hover{
-transform:translateY(-5px);
+text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.5);
 }
 
 .card img{
 width:100%;
 height:150px;
 object-fit:cover;
-}
-
-.card h4{
-margin:10px 0 5px;
-font-size:16px;
+border-radius:12px 12px 0 0;
 }
 
 .price{
 color:#00ff88;
 font-weight:bold;
-margin-bottom:10px;
+margin:5px 0;
 }
 
 .order-btn{
 background:#ff6600;
-color:white;
 border:none;
-padding:8px 15px;
+color:white;
+padding:6px 14px;
 border-radius:20px;
 cursor:pointer;
-font-weight:bold;
-transition:0.3s;
+margin-top:6px;
 }
 
 .order-btn:hover{
@@ -83,12 +70,10 @@ background:#ff3300;
 }
 
 footer{
-background:#111;
+background:#000;
 text-align:center;
-padding:20px;
+padding:15px;
 margin-top:40px;
-font-size:14px;
-color:#aaa;
 }
 </style>
 </head>
@@ -96,186 +81,332 @@ color:#aaa;
 <body>
 
 <header>
-<h1>🧇 The Foodland Cafe</h1>
-<p>Fresh & Tasty Food | Order on WhatsApp</p>
+<h1>The Foodland Cafe</h1>
+<p>Order Ready in 15-20 Minutes</p>
 </header>
 
-<h2>Our Full Menu</h2>
+<!-- ================= BURGER ================= -->
 
-<!-- VEG -->
-<div class="category">🥗 Veg</div>
+<div class="category">🍔 Burger</div>
 <div class="menu">
+
 <div class="card">
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
-<h4>Veg Cheese Burger</h4>
-<p class="price">₹80</p>
-<button class="order-btn" onclick="orderNow('Veg Cheese Burger',80)">Order Now</button>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Hamburger_%28black_bg%29.jpg">
+<h4>Veg Aloo Tikki</h4>
+<p class="price">₹49</p>
+<button class="order-btn" onclick="orderNow('Veg Aloo Tikki',49)">Order Now</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1553909489-cd47e0907980">
-<h4>Veg Grill Sandwich</h4>
-<p class="price">₹70</p>
-<button class="order-btn" onclick="orderNow('Veg Grill Sandwich',70)">Order Now</button>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Hamburger_%28black_bg%29.jpg">
+<h4>Veg Cheese Aloo Tikki</h4>
+<p class="price">₹65</p>
+<button class="order-btn" onclick="orderNow('Veg Cheese Aloo Tikki',65)">Order Now</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
-<h4>Sweet Corn Veg</h4>
-<p class="price">₹60</p>
-<button class="order-btn" onclick="orderNow('Sweet Corn Veg',60)">Order Now</button>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Hamburger_%28black_bg%29.jpg">
+<h4>Spicy Paneer</h4>
+<p class="price">₹69</p>
+<button class="order-btn" onclick="orderNow('Spicy Paneer',69)">Order Now</button>
 </div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Hamburger_%28black_bg%29.jpg">
+<h4>Foodland Special Burger</h4>
+<p class="price">₹99</p>
+<button class="order-btn" onclick="orderNow('Foodland Special Burger',99)">Order Now</button>
 </div>
+
+</div>
+
+<!-- ================= WRAP ================= -->
+
+<div class="category">🌯 Wrap</div>
 <div class="menu">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-<h4>Chicken Cheese Burger</h4>
-<p class="price">₹100</p>
-<button class="order-btn" onclick="orderNow('Chicken Cheese Burger',100)">Order Now</button>
-</div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af">
-<h4>Chicken Grill Sandwich</h4>
-<p class="price">₹90</p>
-<button class="order-btn" onclick="orderNow('Chicken Grill Sandwich',90)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
-<h4>Chicken Tikka Burger</h4>
-<p class="price">₹110</p>
-<button class="order-btn" onclick="orderNow('Chicken Tikka Burger',110)">Order Now</button>
-</div>
-</div>
-
-<!-- COLD DRINKS -->
-<div class="category">🥤 Cold Drinks</div>
-<div class="menu">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1581636625402-29b2a704ef13">
-<h4>Cold Drink (Small)</h4>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Kathi_roll.jpg">
+<h4>Veg Wrap</h4>
 <p class="price">₹40</p>
-<button class="order-btn" onclick="orderNow('Cold Drink Small',40)">Order Now</button>
+<button class="order-btn" onclick="orderNow('Veg Wrap',40)">Order Now</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a">
-<h4>Pepsi (Large)</h4>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Kathi_roll.jpg">
+<h4>Aloo Tikki Wrap</h4>
+<p class="price">₹50</p>
+<button class="order-btn" onclick="orderNow('Aloo Tikki Wrap',50)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Kathi_roll.jpg">
+<h4>Paneer Wrap</h4>
+<p class="price">₹80</p>
+<button class="order-btn" onclick="orderNow('Paneer Wrap',80)">Order Now</button>
+</div>
+
+</div>
+
+<!-- ================= DRINK / SHAKE ================= -->
+
+<div class="category">🥤 Drink / Shake</div>
+<div class="menu">
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Soft_drink.jpg">
+<h4>Cold Drink As You Like</h4>
+<p class="price">MRP</p>
+<button class="order-btn" onclick="orderNow('Cold Drink As You Like','MRP')">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Milkshake.jpg">
+<h4>Oreo Shake</h4>
 <p class="price">₹60</p>
-<button class="order-btn" onclick="orderNow('Pepsi Large',60)">Order Now</button>
-</div>
-</div>
-
-<!-- ROLLS -->
-<div class="category">🌯 Rolls</div>
-<div class="menu">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1604908177522-4293c75d3f52">
-<h4>Paneer Roll</h4>
-<p class="price">₹80</p>
-<button class="order-btn" onclick="orderNow('Paneer Roll',80)">Order Now</button>
+<button class="order-btn" onclick="orderNow('Oreo Shake',60)">Order Now</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1598514982454-3f8b76d4f6c0">
-<h4>Veg Roll</h4>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Milkshake.jpg">
+<h4>Kitkat Shake</h4>
 <p class="price">₹70</p>
-<button class="order-btn" onclick="orderNow('Veg Roll',70)">Order Now</button>
-</div>
+<button class="order-btn" onclick="orderNow('Kitkat Shake',70)">Order Now</button>
 </div>
 
-<!-- PASTA -->
-<div class="category">🍝 Pasta</div>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Milkshake.jpg">
+<h4>Dark Chocolate Shake</h4>
+<p class="price">₹79</p>
+<button class="order-btn" onclick="orderNow('Dark Chocolate Shake',79)">Order Now</button>
+</div>
+
+</div>
+
+<!-- ================= MOMOS ================= -->
+
+<div class="category">🥟 Momos</div>
 <div class="menu">
+
 <div class="card">
-<img src="https://images.unsplash.com/photo-1608755728617-aefab37d2edd">
-<h4>Cheese Pasta</h4>
-<p class="price">₹90</p>
-<button class="order-btn" onclick="orderNow('Cheese Pasta',90)">Order Now</button>
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Momo_nepal.jpg">
+<h4>Steam Momos</h4>
+<p class="price">₹40</p>
+<button class="order-btn" onclick="orderNow('Steam Momos',40)">Order Now</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9">
-<h4>White Pasta</h4>
-<p class="price">₹80</p>
-<button class="order-btn" onclick="orderNow('White Pasta',80)">Order Now</button>
-</div>
-</div>
-
-<!-- SHAKES -->
-<div class="category">🥤 Shakes</div>
-<div class="menu">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1577801596373-6c6aa3b2ef5f">
-<h4>Mango Shake</h4>
-<p class="price">₹70</p>
-<button class="order-btn" onclick="orderNow('Mango Shake',70)">Order Now</button>
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Momo_nepal.jpg">
+<h4>Fried Momos</h4>
+<p class="price">₹50</p>
+<button class="order-btn" onclick="orderNow('Fried Momos',50)">Order Now</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699">
-<h4>Chocolate Shake</h4>
-<p class="price">₹70</p>
-<button class="order-btn" onclick="orderNow('Chocolate Shake',70)">Order Now</button>
-</div>
-</div>
-
-<!-- FRIES -->
-<div class="category">🍟 Fries</div>
-<div class="menu">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877">
-<h4>Cheese Fries</h4>
-<p class="price">₹80</p>
-<button class="order-btn" onclick="orderNow('Cheese Fries',80)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-<h4>French Fries</h4>
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Momo_nepal.jpg">
+<h4>Paneer Steam</h4>
 <p class="price">₹60</p>
-<button class="order-btn" onclick="orderNow('French Fries',60)">Order Now</button>
-</div>
-</div>
-
-<!-- DRINKS -->
-<div class="category">🍹 Drinks & Others</div>
-<div class="menu">
-<div class="card"><img src="https://images.unsplash.com/photo-1582574681990-ccf5d3f1d3a6"><h4>Virgin Mojito</h4><p class="price">₹80</p><button class="order-btn" onclick="orderNow('Virgin Mojito',80)">Order Now</button></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096"><h4>Cold Coffee</h4><p class="price">₹60</p><button class="order-btn" onclick="orderNow('Cold Coffee',60)">Order Now</button></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb"><h4>Ice Cream</h4><p class="price">₹50</p><button class="order-btn" onclick="orderNow('Ice Cream',50)">Order Now</button></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1590086782792-42dd2350140d"><h4>Badam Milk</h4><p class="price">₹40</p><button class="order-btn" onclick="orderNow('Badam Milk',40)">Order Now</button></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93"><h4>Chai</h4><p class="price">₹20</p><button class="order-btn" onclick="orderNow('Chai',20)">Order Now</button></div>
-
-<div class="card"><img src="https://images.unsplash.com/photo-1589985270958-bc3e6e5f5f08"><h4>Lassi</h4><p class="price">₹40</p><button class="order-btn" onclick="orderNow('Lassi',40)">Order Now</button></div>
-
+<button class="order-btn" onclick="orderNow('Paneer Steam',60)">Order Now</button>
 </div>
 
-<footer>
-📞 Order on WhatsApp: 8442004815  
-<br>
-© 2026 The Foodland Cafe
-</footer>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Momo_nepal.jpg">
+<h4>Paneer Fried</h4>
+<p class="price">₹69</p>
+<button class="order-btn" onclick="orderNow('Paneer Fried',69)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Momo_nepal.jpg">
+<h4>Kurkure Momos</h4>
+<p class="price">₹75</p>
+<button class="order-btn" onclick="orderNow('Kurkure Momos',75)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Momo_nepal.jpg">
+<h4>Afghani Momos</h4>
+<p class="price">₹99</p>
+<button class="order-btn" onclick="orderNow('Afghani Momos',99)">Order Now</button>
+</div>
+
+</div>
+
+<!-- WhatsApp Script -->
 
 <script>
 function orderNow(item, price){
-    let phone = "918442004815";
-    let message = "Hello Foodland Cafe,%0AI want to order:%0A" 
-                + item + " - ₹" + price;
-    let url = "https://wa.me/" + phone + "?text=" + message;
-    window.open(url, "_blank");
+let phone="918442004815";
+let message="Hello Foodland Cafe,%0AI want to order:%0A"+item+" - ₹"+price;
+window.open("https://wa.me/"+phone+"?text="+message,"_blank");
 }
+</script>
+
+<footer>
+© 2026 The Foodland Cafe
+</footer>
+
 </body>
 </html>
-  [8:22 pm, 01/03/2026] devanshusain0678: <img src="https://source.unsplash.com/400x300/?paneer,roll">
-[8:23 pm, 01/03/2026] devanshusain0678: <img src="https://source.unsplash.com/400x300/?veg,kathi,roll">
-[8:23 pm, 01/03/2026] devanshusain0678: <img src="https://source.unsplash.com/400x300/?mango,milkshake">
-[8:23 pm, 01/03/2026] devanshusain0678: <img src="https://source.unsplash.com/400x300/?virgin,mojito,drink">
-[8:23 pm, 01/03/2026] devanshusain0678: <img src="https://source.unsplash.com/400x300/?lassi,drink">
-[8:23 pm, 01/03/2026] devanshusain0678: <img src="https://source.unsplash.com/400x300/?almond,milk,drink">
-</script>   
+<!-- ================= SANDWICH ================= -->
+
+<div class="category">🥪 Sandwich</div>
+<div class="menu">
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg">
+<h4>Veg Sandwich</h4>
+<p class="price">₹39</p>
+<button class="order-btn" onclick="orderNow('Veg Sandwich',39)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg">
+<h4>Veg Green Sandwich</h4>
+<p class="price">₹50</p>
+<button class="order-btn" onclick="orderNow('Veg Green Sandwich',50)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg">
+<h4>Veg Cheese Green Sandwich</h4>
+<p class="price">₹70</p>
+<button class="order-btn" onclick="orderNow('Veg Cheese Green Sandwich',70)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg">
+<h4>Jumbo Sandwich</h4>
+<p class="price">₹120</p>
+<button class="order-btn" onclick="orderNow('Jumbo Sandwich',120)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg">
+<h4>Cheese Sandwich</h4>
+<p class="price">₹80</p>
+<button class="order-btn" onclick="orderNow('Cheese Sandwich',80)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg">
+<h4>Paneer Sandwich</h4>
+<p class="price">₹99</p>
+<button class="order-btn" onclick="orderNow('Paneer Sandwich',99)">Order Now</button>
+</div>
+
+</div>
+
+
+<!-- ================= CHINESE ================= -->
+
+<div class="category">🍜 Chinese</div>
+<div class="menu">
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Chow_mein_1_by_rohit_kandwal.jpg">
+<h4>Veg Chowmein (Small)</h4>
+<p class="price">₹40</p>
+<button class="order-btn" onclick="orderNow('Veg Chowmein Small',40)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Chow_mein_1_by_rohit_kandwal.jpg">
+<h4>Veg Chowmein (Medium)</h4>
+<p class="price">₹70</p>
+<button class="order-btn" onclick="orderNow('Veg Chowmein Medium',70)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Hakka_noodles.jpg">
+<h4>Veg Hakka Noodles</h4>
+<p class="price">₹80</p>
+<button class="order-btn" onclick="orderNow('Veg Hakka Noodles',80)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Manchurian.jpg">
+<h4>Veg Manchurian (Gravy)</h4>
+<p class="price">₹100</p>
+<button class="order-btn" onclick="orderNow('Veg Manchurian Gravy',100)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Manchurian.jpg">
+<h4>Veg Manchurian (Dry)</h4>
+<p class="price">₹120</p>
+<button class="order-btn" onclick="orderNow('Veg Manchurian Dry',120)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Honey_chilli_potato.jpg">
+<h4>Honey Chilli Potato</h4>
+<p class="price">₹80</p>
+<button class="order-btn" onclick="orderNow('Honey Chilli Potato',80)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Maggi_Noodles.jpg">
+<h4>Plain Maggi</h4>
+<p class="price">₹40</p>
+<button class="order-btn" onclick="orderNow('Plain Maggi',40)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Maggi_Noodles.jpg">
+<h4>Veg Maggi</h4>
+<p class="price">₹60</p>
+<button class="order-btn" onclick="orderNow('Veg Maggi',60)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Maggi_Noodles.jpg">
+<h4>Veg Masala Maggi</h4>
+<p class="price">₹70</p>
+<button class="order-btn" onclick="orderNow('Veg Masala Maggi',70)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Maggi_Noodles.jpg">
+<h4>Cheese Maggi</h4>
+<p class="price">₹90</p>
+<button class="order-btn" onclick="orderNow('Cheese Maggi',90)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Maggi_Noodles.jpg">
+<h4>Tandoori Maggi</h4>
+<p class="price">₹90</p>
+<button class="order-btn" onclick="orderNow('Tandoori Maggi',90)">Order Now</button>
+</div>
+
+</div>
+
+
+<!-- ================= FRIES ================= -->
+
+<div class="category">🍟 Fries</div>
+<div class="menu">
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/64/French_Fries.JPG">
+<h4>Fries With Sauce</h4>
+<p class="price">₹50</p>
+<button class="order-btn" onclick="orderNow('Fries With Sauce',50)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/64/French_Fries.JPG">
+<h4>Peri Peri Fries</h4>
+<p class="price">₹60</p>
+<button class="order-btn" onclick="orderNow('Peri Peri Fries',60)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/64/French_Fries.JPG">
+<h4>Peri Peri Masala Fries</h4>
+<p class="price">₹80</p>
+<button class="order-btn" onclick="orderNow('Peri Peri Masala Fries',80)">Order Now</button>
+</div>
+
+</div>
