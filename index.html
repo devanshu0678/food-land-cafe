@@ -284,3 +284,38 @@ color:#aaa;
 
 </body>
 </html>
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    alert("Order Placed Successfully! We will contact you soon.");
+});
+</script>
+<a href="upi://pay?pa=yourupiid@okbank&pn=FoodlandCafe&cu=INR"
+style="display:block;background:#6a0dad;padding:12px;text-align:center;
+color:white;border-radius:30px;width:200px;margin:20px auto;">
+Pay via UPI
+</a>
+<style>
+.bottom-nav{
+position:fixed;
+bottom:0;
+width:100%;
+background:#111;
+display:flex;
+justify-content:space-around;
+padding:10px 0;
+}
+
+.bottom-nav a{
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+</style>
+
+<div class="bottom-nav">
+<a href="#">🏠 Home</a>
+<a href="#">🛒 Cart</a>
+<a href="#">📞 Contact</a>
+<a href="https://wa.me/918442004815">WhatsApp</a>
+</div>
