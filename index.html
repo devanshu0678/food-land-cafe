@@ -284,6 +284,193 @@ color:#aaa;
 
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Food Land Cafe</title>
+
+<style>
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: white;
+  text-align: center;
+}
+
+/* OFFER BANNER */
+.offer-banner {
+  background: gold;
+  color: black;
+  padding: 10px;
+  font-weight: bold;
+  animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+  from { opacity: 1; }
+  to { opacity: 0.6; }
+}
+
+/* MENU GRID */
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+.menu-item {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+
+.menu-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* BUTTON STYLE */
+button {
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+button:hover {
+  background: #1ebe5d;
+}
+
+/* FORM */
+input {
+  padding: 10px;
+  margin: 5px;
+  width: 250px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* FLOATING WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  animation: pulse 1.5s infinite;
+  z-index: 1000;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="offer-banner">
+🔥 Today Special: 20% OFF on Paneer Pizza 🔥
+</div>
+
+<h1>Our Menu</h1>
+
+<div class="menu-container">
+
+<!-- ITEM 1 -->
+<div class="menu-item">
+<img src="burger.jpg">
+<h3>Veg Burger</h3>
+<p>₹99</p>
+<button onclick="addToOrder('Veg Burger - ₹99')">Add to Order</button>
+</div>
+
+<!-- ITEM 2 -->
+<div class="menu-item">
+<img src="pizza.jpg">
+<h3>Paneer Pizza</h3>
+<p>₹249</p>
+<button onclick="addToOrder('Paneer Pizza - ₹249')">Add to Order</button>
+</div>
+
+<!-- ITEM 3 -->
+<div class="menu-item">
+<img src="shake.jpg">
+<h3>Chocolate Shake</h3>
+<p>₹149</p>
+<button onclick="addToOrder('Chocolate Shake - ₹149')">Add to Order</button>
+</div>
+
+<!-- Aap yahi format copy karke baaki 15-20 items add kar sakte ho -->
+
+</div>
+
+<h2>Place Your Order</h2>
+
+<input type="text" id="name" placeholder="Your Name"><br>
+<input type="text" id="phone" placeholder="Your Phone"><br>
+
+<button onclick="sendToWhatsApp()">Send Order on WhatsApp</button>
+
+<!-- FLOATING BUTTON -->
+<a href="#" class="whatsapp-float" onclick="sendToWhatsApp()">Order Now</a>
+
+<script>
+
+let orderList = [];
+
+function addToOrder(item) {
+  orderList.push(item);
+  alert(item + " added to order!");
+}
+
+function sendToWhatsApp() {
+
+  if(orderList.length === 0){
+    alert("Please add items first!");
+    return;
+  }
+
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+
+  let message = "Hello Foodland Cafe,%0A%0A";
+  message += "Name: " + name + "%0A";
+  message += "Phone: " + phone + "%0A%0A";
+  message += "My Order:%0A";
+
+  orderList.forEach((item, index) => {
+    message += (index+1) + ". " + item + "%0A";
+  });
+
+  message += "%0APayment: Cash";
+
+  window.open("https://wa.me/918442004815?text=" + message, "_blank");
+}
+
+</script>
+
+</body>
+</html>
  <img src="images/veg-burger.jpg">
  <img src="images/pizza.jpg">
  <img src="images/sandwich.jpg">
