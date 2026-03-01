@@ -284,38 +284,281 @@ color:#aaa;
 
 </body>
 </html>
-<script>
-document.getElementById("orderForm").addEventListener("submit", function(e){
-    e.preventDefault();
-    alert("Order Placed Successfully! We will contact you soon.");
-});
-</script>
-<a href="upi://pay?pa=yourupiid@okbank&pn=FoodlandCafe&cu=INR"
-style="display:block;background:#6a0dad;padding:12px;text-align:center;
-color:white;border-radius:30px;width:200px;margin:20px auto;">
-Pay via UPI
-</a>
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Foodland Cafe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-.bottom-nav{
-position:fixed;
-bottom:0;
-width:100%;
-background:#111;
-display:flex;
-justify-content:space-around;
-padding:10px 0;
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#0f0f0f;
+color:white;
 }
 
-.bottom-nav a{
+header{
+background:linear-gradient(135deg,#5a3e2b,#8b5e3c);
+text-align:center;
+padding:30px 15px;
+}
+
+h1{margin:0;font-size:28px;}
+h2{text-align:center;margin-top:40px;color:#00ff99;}
+
+.category{
+text-align:center;
+margin-top:35px;
+font-size:22px;
+color:#ffcc00;
+}
+
+.menu{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+gap:18px;
+padding:20px;
+}
+
+.card{
+background:#1b1b1b;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 6px 15px rgba(0,0,0,0.6);
+text-align:center;
+transition:0.3s;
+padding-bottom:15px;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+
+.card h4{
+margin:10px 0 5px;
+font-size:16px;
+}
+
+.price{
+color:#00ff88;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.order-btn{
+background:#ff6600;
 color:white;
-text-decoration:none;
+border:none;
+padding:8px 15px;
+border-radius:20px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+.order-btn:hover{
+background:#ff3300;
+}
+
+footer{
+background:#111;
+text-align:center;
+padding:20px;
+margin-top:40px;
 font-size:14px;
+color:#aaa;
 }
 </style>
+</head>
 
-<div class="bottom-nav">
-<a href="#">🏠 Home</a>
-<a href="#">🛒 Cart</a>
-<a href="#">📞 Contact</a>
-<a href="https://wa.me/918442004815">WhatsApp</a>
+<body>
+
+<header>
+<h1>🧇 The Foodland Cafe</h1>
+<p>Fresh & Tasty Food | Order on WhatsApp</p>
+</header>
+
+<h2>Our Full Menu</h2>
+
+<!-- VEG -->
+<div class="category">🥗 Veg</div>
+<div class="menu">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+<h4>Veg Cheese Burger</h4>
+<p class="price">₹80</p>
+<button class="order-btn" onclick="orderNow('Veg Cheese Burger',80)">Order Now</button>
 </div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1553909489-cd47e0907980">
+<h4>Veg Grill Sandwich</h4>
+<p class="price">₹70</p>
+<button class="order-btn" onclick="orderNow('Veg Grill Sandwich',70)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<h4>Sweet Corn Veg</h4>
+<p class="price">₹60</p>
+<button class="order-btn" onclick="orderNow('Sweet Corn Veg',60)">Order Now</button>
+</div>
+</div>
+
+<!-- NON VEG -->
+<div class="category">🍗 Non-Veg</div>
+<div class="menu">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<h4>Chicken Cheese Burger</h4>
+<p class="price">₹100</p>
+<button class="order-btn" onclick="orderNow('Chicken Cheese Burger',100)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af">
+<h4>Chicken Grill Sandwich</h4>
+<p class="price">₹90</p>
+<button class="order-btn" onclick="orderNow('Chicken Grill Sandwich',90)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+<h4>Chicken Tikka Burger</h4>
+<p class="price">₹110</p>
+<button class="order-btn" onclick="orderNow('Chicken Tikka Burger',110)">Order Now</button>
+</div>
+</div>
+
+<!-- COLD DRINKS -->
+<div class="category">🥤 Cold Drinks</div>
+<div class="menu">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1581636625402-29b2a704ef13">
+<h4>Cold Drink (Small)</h4>
+<p class="price">₹40</p>
+<button class="order-btn" onclick="orderNow('Cold Drink Small',40)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a">
+<h4>Pepsi (Large)</h4>
+<p class="price">₹60</p>
+<button class="order-btn" onclick="orderNow('Pepsi Large',60)">Order Now</button>
+</div>
+</div>
+
+<!-- ROLLS -->
+<div class="category">🌯 Rolls</div>
+<div class="menu">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908177522-4293c75d3f52">
+<h4>Paneer Roll</h4>
+<p class="price">₹80</p>
+<button class="order-btn" onclick="orderNow('Paneer Roll',80)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1598514982454-3f8b76d4f6c0">
+<h4>Veg Roll</h4>
+<p class="price">₹70</p>
+<button class="order-btn" onclick="orderNow('Veg Roll',70)">Order Now</button>
+</div>
+</div>
+
+<!-- PASTA -->
+<div class="category">🍝 Pasta</div>
+<div class="menu">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1608755728617-aefab37d2edd">
+<h4>Cheese Pasta</h4>
+<p class="price">₹90</p>
+<button class="order-btn" onclick="orderNow('Cheese Pasta',90)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9">
+<h4>White Pasta</h4>
+<p class="price">₹80</p>
+<button class="order-btn" onclick="orderNow('White Pasta',80)">Order Now</button>
+</div>
+</div>
+
+<!-- SHAKES -->
+<div class="category">🥤 Shakes</div>
+<div class="menu">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1577801596373-6c6aa3b2ef5f">
+<h4>Mango Shake</h4>
+<p class="price">₹70</p>
+<button class="order-btn" onclick="orderNow('Mango Shake',70)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699">
+<h4>Chocolate Shake</h4>
+<p class="price">₹70</p>
+<button class="order-btn" onclick="orderNow('Chocolate Shake',70)">Order Now</button>
+</div>
+</div>
+
+<!-- FRIES -->
+<div class="category">🍟 Fries</div>
+<div class="menu">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877">
+<h4>Cheese Fries</h4>
+<p class="price">₹80</p>
+<button class="order-btn" onclick="orderNow('Cheese Fries',80)">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<h4>French Fries</h4>
+<p class="price">₹60</p>
+<button class="order-btn" onclick="orderNow('French Fries',60)">Order Now</button>
+</div>
+</div>
+
+<!-- DRINKS -->
+<div class="category">🍹 Drinks & Others</div>
+<div class="menu">
+<div class="card"><img src="https://images.unsplash.com/photo-1582574681990-ccf5d3f1d3a6"><h4>Virgin Mojito</h4><p class="price">₹80</p><button class="order-btn" onclick="orderNow('Virgin Mojito',80)">Order Now</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096"><h4>Cold Coffee</h4><p class="price">₹60</p><button class="order-btn" onclick="orderNow('Cold Coffee',60)">Order Now</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb"><h4>Ice Cream</h4><p class="price">₹50</p><button class="order-btn" onclick="orderNow('Ice Cream',50)">Order Now</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1590086782792-42dd2350140d"><h4>Badam Milk</h4><p class="price">₹40</p><button class="order-btn" onclick="orderNow('Badam Milk',40)">Order Now</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93"><h4>Chai</h4><p class="price">₹20</p><button class="order-btn" onclick="orderNow('Chai',20)">Order Now</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1589985270958-bc3e6e5f5f08"><h4>Lassi</h4><p class="price">₹40</p><button class="order-btn" onclick="orderNow('Lassi',40)">Order Now</button></div>
+
+</div>
+
+<footer>
+📞 Order on WhatsApp: 8442004815  
+<br>
+© 2026 The Foodland Cafe
+</footer>
+
+<script>
+function orderNow(item, price){
+    let phone = "918442004815";
+    let message = "Hello Foodland Cafe,%0AI want to order:%0A" 
+                + item + " - ₹" + price;
+    let url = "https://wa.me/" + phone + "?text=" + message;
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
