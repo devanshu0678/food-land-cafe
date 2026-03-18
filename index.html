@@ -1,411 +1,752 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>The Foodland Cafe</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Foodland Cafe</title>
 
-<style>
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#111;
-color:white;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
 
-header{
-background:#8b5e3c;
-padding:20px;
-text-align:center;
-}
+        /* NAVBAR */
 
-h1{margin:0;}
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 25px;
+            z-index: 1000;
+        }
 
-.category{
-text-align:center;
-margin-top:40px;
-font-size:22px;
-color:#ffcc00;
-}
+        nav h2 {
+            color: #ff9966;
+        }
 
-.menu{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-gap:15px;
-padding:20px;
-}
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
 
-.card{
-background:#1c1c1c;
-border-radius:12px;
-padding-bottom:15px;
-text-align:center;
-box-shadow:0 4px 10px rgba(0,0,0,0.5);
-}
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
 
-.card img{
-width:100%;
-height:150px;
-object-fit:cover;
-border-radius:12px 12px 0 0;
-}
+        /* HEADER */
 
-.price{
-color:#00ff88;
-font-weight:bold;
-margin:5px 0;
-}
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(45deg, #ff512f, #dd2476);
+        }
 
-.order-btn{
-background:#ff6600;
-border:none;
-color:white;
-padding:6px 14px;
-border-radius:20px;
-cursor:pointer;
-margin-top:6px;
-}
+        /* CATEGORY */
 
-.order-btn:hover{
-background:#ff3300;
-}
+        .category {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 26px;
+            color: #ffd700;
+            font-weight: bold;
+        }
 
-footer{
-background:#000;
-text-align:center;
-padding:15px;
-margin-top:40px;
-}
-</style>
+        /* MENU */
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 25px;
+        }
+
+        /* CARD */
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.04);
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .price {
+            color: #00ffcc;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* BUTTON */
+
+        .order-btn {
+            background: linear-gradient(45deg, #ff512f, #ff9966);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #ff9966;
+        }
+
+        /* POPUP */
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(28, 28, 28, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 25px;
+            border-radius: 15px;
+            display: none;
+            z-index: 1000;
+            width: 90%;
+            max-width: 350px;
+            transition: 0.3s;
+        }
+
+        .popup.active {
+            display: block;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* COMBO SPECIAL CARD */
+
+        .combo-card {
+            border: 2px solid #ff9966;
+            background: linear-gradient(135deg, rgba(255, 153, 102, 0.2), rgba(255, 81, 47, 0.2));
+            box-shadow: 0 0 20px rgba(255, 153, 102, 0.6);
+            transform: scale(1.05);
+        }
+
+        .combo-card:hover {
+            transform: scale(1.08);
+        }
+
+        .combo-items {
+            font-size: 14px;
+            color: #ffd700;
+            margin: 8px 10px;
+        }
+
+        select {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        select:focus {
+            outline: none;
+            box-shadow: 0 0 8px #ff9966;
+        }
+
+        .menu {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .menu::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .menu::-webkit-scrollbar-thumb {
+            background: #ff9966;
+            border-radius: 10px;
+        }
+
+        .card {
+            min-width: 220px;
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+        }
+
+        /* INPUT */
+
+        .popup input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+        }
+
+        .popup input:focus {
+            box-shadow: 0 0 8px #ff9966;
+        }
+
+        /* QUANTITY */
+
+        .qty-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .qty-box button {
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff512f, #ff9966);
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .qty-box input {
+            width: 60px;
+            text-align: center;
+        }
+
+        /* CLOSE */
+
+        .close-btn {
+            background: red;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        /* WHATSAPP */
+
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #000;
+            padding: 30px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-<h1>The Foodland Cafe</h1>
-<p>Order Ready in 15-20 Minutes</p>
-</header>
+    <nav>
+        <h2>Foodland Cafe</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#burger">Burger</a></li>
+            <li><a href="#momos">Momos</a></li>
+        </ul>
+    </nav>
 
-<!-- ================= BURGER ================= -->
+    <header>
+        <h1>🍔 The Foodland Cafe</h1>
+        <p>Fresh Fast Food • Ready in 15-20 Minutes</p>
+    </header>
 
-<div class="category">🍔 Burger</div>
-<div class="menu">
+    <div class="category" id="burger">🍔 Burger</div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600">
-<h4>Veg Aloo Tikki</h4>
-<p class="price">₹49</p>
-<button class="order-btn" onclick="orderNow('Veg Aloo Tikki',49)">Order Now</button>
-</div>
+    <div class="menu">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600">
-<h4>Veg Cheese Aloo Tikki</h4>
-<p class="price">₹65</p>
-<button class="order-btn" onclick="orderNow('Veg Cheese Aloo Tikki',65)">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+            <h4>Veg Aloo Tikki</h4>
+            <p class="price">₹49</p>
+            <button class="order-btn" onclick="openPopup('Veg Aloo Tikki',49)">Order</button>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600">
-<h4>Spicy Paneer</h4>
-<p class="price">₹69</p>
-<button class="order-btn" onclick="orderNow('Spicy Paneer',69)">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+            <h4>Veg Cheese Aloo Tikki</h4>
+            <p class="price">₹65</p>
+            <button class="order-btn" onclick="openPopup('Veg Cheese Aloo Tikki',65)">Order</button>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600">
-<h4>Foodland Special Burger</h4>
-<p class="price">₹99</p>
-<button class="order-btn" onclick="orderNow('Foodland Special Burger',99)">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1606755962773-d324e2d53a5f">
+            <h4>Spicy Paneer Burger</h4>
+            <p class="price">₹69</p>
+            <button class="order-btn" onclick="openPopup('Spicy Paneer Burger',69)">Order</button>
+        </div>
 
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5">
+            <h4>Foodland Special Burger</h4>
+            <p class="price">₹99</p>
+            <button class="order-btn" onclick="openPopup('Foodland Special Burger',99)">Order</button>
+        </div>
 
-<!-- ================= WRAP ================= -->
+    </div>
+    <div class="menu">
 
-<div class="category">🌯 Wrap</div>
-<div class="menu">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+            <h4>Veg Aloo Tikki</h4>
+            <p class="price">₹49</p>
+            <button class="order-btn" onclick="openPopup('Veg Aloo Tikki',49)">Order</button>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600">
-<h4>Veg Wrap</h4>
-<p class="price">₹40</p>
-<button class="order-btn" onclick="orderNow('Veg Wrap',40)">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+            <h4>Cheese Burst Burger</h4>
+            <p class="price">₹79</p>
+            <button class="order-btn" onclick="openPopup('Cheese Burst Burger',79)">Order</button>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600">
-<h4>Aloo Tikki Wrap</h4>
-<p class="price">₹50</p>
-<button class="order-btn" onclick="orderNow('Aloo Tikki Wrap',50)">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5">
+            <h4>Double Patty Burger</h4>
+            <p class="price">₹99</p>
+            <button class="order-btn" onclick="openPopup('Double Patty Burger',99)">Order</button>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600">
-<h4>Paneer Wrap</h4>
-<p class="price">₹80</p>
-<button class="order-btn" onclick="orderNow('Paneer Wrap',80)">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1550317138-10000687a72b">
+            <h4>Spicy Mexican Burger</h4>
+            <p class="price">₹109</p>
+            <button class="order-btn" onclick="openPopup('Spicy Mexican Burger',109)">Order</button>
+        </div>
 
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90">
+            <h4>Peri Peri Burger</h4>
+            <p class="price">₹119</p>
+            <button class="order-btn" onclick="openPopup('Peri Peri Burger',119)">Order</button>
+        </div>
 
-<!-- ================= DRINK / SHAKE ================= -->
+    </div>
+    <div class="category" id="momos">🥟 Momos</div>
 
-<div class="category">🥤 Drink / Shake</div>
-<div class="menu">
+    <div class="menu">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600">
-<h4>Cold Drink As You Like</h4>
-<p class="price">MRP</p>
-<button class="order-btn" onclick="orderNow('Cold Drink As You Like','MRP')">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec">
+            <h4>Steam Momos</h4>
+            <p class="price">₹40</p>
+            <button class="order-btn" onclick="openPopup('Steam Momos',40)">Order</button>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600">
-<h4>Oreo Shake</h4>
-<p class="price">₹60</p>
-<button class="order-btn" onclick="orderNow('Oreo Shake',60)">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec">
+            <h4>Fried Momos</h4>
+            <p class="price">₹50</p>
+            <button class="order-btn" onclick="openPopup('Fried Momos',50)">Order</button>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600">
-<h4>Kitkat Shake</h4>
-<p class="price">₹70</p>
-<button class="order-btn" onclick="orderNow('Kitkat Shake',70)">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec">
+            <h4>Paneer Steam Momos</h4>
+            <p class="price">₹60</p>
+            <button class="order-btn" onclick="openPopup('Paneer Steam Momos',60)">Order</button>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600">
-<h4>Dark Chocolate Shake</h4>
-<p class="price">₹79</p>
-<button class="order-btn" onclick="orderNow('Dark Chocolate Shake',79)">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec">
+            <h4>Paneer Fried Momos</h4>
+            <p class="price">₹69</p>
+            <button class="order-btn" onclick="openPopup('Paneer Fried Momos',69)">Order</button>
+        </div>
 
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec">
+            <h4>Kurkure Momos</h4>
+            <p class="price">₹75</p>
+            <button class="order-btn" onclick="openPopup('Kurkure Momos',75)">Order</button>
+        </div>
 
-<!-- ================= MOMOS ================= -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec">
+            <h4>Afghani Momos</h4>
+            <p class="price">₹99</p>
+            <button class="order-btn" onclick="openPopup('Afghani Momos',99)">Order</button>
+        </div>
 
-<div class="category">🥟 Momos</div>
-<div class="menu">
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600">
-<h4>Steam Momos</h4>
-<p class="price">₹40</p>
-<button class="order-btn" onclick="orderNow('Steam Momos',40)">Order Now</button>
-</div>
+    <div class="category" id="wrap">🌯 Wrap</div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600">">
-<h4>Fried Momos</h4>
-<p class="price">₹50</p>
-<button class="order-btn" onclick="orderNow('Fried Momos',50)">Order Now</button>
-</div>
+    <div class="menu">
 
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Momo_nepal.jpg">
-<h4>Paneer Steam</h4>
-<p class="price">₹60</p>
-<button class="order-btn" onclick="orderNow('Paneer Steam',60)">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1604908176997-4319c4e2eaa7">
+            <h4>Veg Wrap</h4>
+            <p class="price">₹40</p>
+            <button class="order-btn" onclick="openPopup('Veg Wrap',40)">Order</button>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600">
-<h4>Paneer Fried</h4>
-<p class="price">₹69</p>
-<button class="order-btn" onclick="orderNow('Paneer Fried',69)">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1604908176997-4319c4e2eaa7">
+            <h4>Aloo Tikki Wrap</h4>
+            <p class="price">₹50</p>
+            <button class="order-btn" onclick="openPopup('Aloo Tikki Wrap',50)">Order</button>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600">
-<h4>Kurkure Momos</h4>
-<p class="price">₹75</p>
-<button class="order-btn" onclick="orderNow('Kurkure Momos',75)">Order Now</button>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1604908176997-4319c4e2eaa7">
+            <h4>Paneer Wrap</h4>
+            <p class="price">₹80</p>
+            <button class="order-btn" onclick="openPopup('Paneer Wrap',80)">Order</button>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600">>
-<h4>Afghani Momos</h4>
-<p class="price">₹99</p>
-<button class="order-btn" onclick="orderNow('Afghani Momos',99)">Order Now</button>
-</div>
+    </div>
+    <div class="category" id="drinks">🥤 Drinks & Shakes</div>
 
-</div>
+    <div class="menu">
 
-<!-- WhatsApp Script -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a">
+            <h4>Cold Drink (As You Like)</h4>
+            <p class="price">On MRP</p>
+            <button class="order-btn" onclick="openPopup('Cold Drink',0)">Order</button>
+        </div>
 
-<script>
-function orderNow(item, price){
-let phone="918442004815";
-let message="Hello Foodland Cafe,%0AI want to order:%0A"+item+" - ₹"+price;
-window.open("https://wa.me/"+phone+"?text="+message,"_blank");
-}
-</script>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699">
+            <h4>Oreo Shake</h4>
+            <p class="price">₹60</p>
+            <button class="order-btn" onclick="openPopup('Oreo Shake',60)">Order</button>
+        </div>
 
-<footer>
-© 2026 The Foodland Cafe
-</footer>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1625944525533-473f1b3d54b3">
+            <h4>KitKat Shake</h4>
+            <p class="price">₹70</p>
+            <button class="order-btn" onclick="openPopup('KitKat Shake',70)">Order</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1604908176997-4319c4e2eaa7">
+            <h4>Dark Chocolate Shake</h4>
+            <p class="price">₹79</p>
+            <button class="order-btn" onclick="openPopup('Dark Chocolate Shake',79)">Order</button>
+        </div>
+
+    </div>
+
+    <div class="category" id="pizza">🍕 Pizza</div>
+
+    <div class="menu">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65">
+            <h4>Margherita Pizza</h4>
+
+            <select>
+                <option value="" disabled selected hidden>Select Size</option>
+                <option value="99">Small ₹99</option>
+                <option value="149">Medium ₹149</option>
+            </select>
+
+            <button class="order-btn" onclick="orderPizza(this)">Order</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1601924928376-0a9a3a3a73f0">
+            <h4>Onion / Cheese Onion</h4>
+
+            <select>
+                <option value="" disabled selected hidden>Select Size</option>
+                <option value="99">Small ₹99</option>
+                <option value="149">Medium ₹149</option>
+            </select>
+
+            <button class="order-btn" onclick="orderPizza(this)">Order</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1601924638867-3ec3c2f9b7c5">
+            <h4>Corn / Cheese Corn</h4>
+
+            <select>
+                <option value="" disabled selected hidden>Select Size</option>
+                <option value="99">Small ₹99</option>
+                <option value="149">Medium ₹149</option>
+            </select>
+            <button class="order-btn" onclick="orderPizza(this)">Order</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1548365328-8b849e99f8b4">
+            <h4>Sweet Corn Pizza</h4>
+
+            <select onchange="selectSize(this,'Sweet Corn Pizza')">
+                <option value="120">₹120</option>
+            </select>
+            <button class="order-btn" onclick="orderPizza(this)">Order</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1604382355076-af4b0eb60143">
+            <h4>Paneer Pizza</h4>
+
+            <select onchange="selectSize(this,'Paneer Pizza')">
+                <option value="129">₹129</option>
+            </select>
+            <button class="order-btn" onclick="orderPizza(this)">Order</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e">
+            <h4>Onion Tomato Paneer</h4>
+
+            <select onchange="selectSize(this,'Onion Tomato Paneer Pizza')">
+                <option value="149">₹149</option>
+            </select>
+
+            <button class="order-btn" onclick="orderPizza(this)">Order</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+            <h4>Foodland Special Pizza</h4>
+
+            <select>
+                <option value="" disabled selected hidden>Select Size</option>
+                <option value="99">Small ₹99</option>
+                <option value="149">Medium ₹149</option>
+            </select>
+
+            <button class="order-btn" onclick="orderPizza(this)">Order</button>
+        </div>
+
+    </div>
+
+    <div class="category" id="combo">🔥 Foodland High Five</div>
+
+    <div class="menu">
+
+        <div class="card combo-card">
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+
+            <h4>Foodland High Five Combo</h4>
+
+            <p class="combo-items">
+                🍔 Burger + 🍕 Pizza + 🥟 Momos + 🌯 Wrap + 🥤 Drink
+            </p>
+
+            <p class="price">₹199</p>
+
+            <button class="order-btn" onclick="openPopup('Foodland High Five Combo',199)">
+                Order Combo
+            </button>
+
+        </div>
+
+    </div>
+    <!-- POPUP -->
+
+    <div class="popup" id="popup">
+
+        <button class="order-btn close-btn" onclick="closePopup()">Close</button>
+
+        <h3>Place Order</h3>
+
+        <input id="name" placeholder="Your Name">
+        <input id="address" placeholder="Address">
+        <input id="phone" placeholder="Phone">
+
+        <div class="qty-box">
+            <button onclick="decreaseQty()">−</button>
+            <input type="number" id="quantity" value="1" min="1">
+            <button onclick="increaseQty()">+</button>
+        </div>
+
+        <p id="totalPrice"></p>
+
+        <button class="order-btn" onclick="sendOrder()">Send Order</button>
+
+    </div>
+
+    <a class="whatsapp" href="https://wa.me/918442004815">💬</a>
+
+    <footer>
+        <p>© 2026 Foodland Cafe</p>
+    </footer>
+
+    <script>
+
+        let itemName = ""
+        let itemPrice = 0
+        let itemSize = ""
+
+        /* 🍕 PIZZA ORDER FUNCTION */
+
+        function orderPizza(btn) {
+
+            let card = btn.closest(".card")
+
+            let name = card.querySelector("h4").innerText
+            let select = card.querySelector("select")
+
+            let price = select.value
+            let text = select.options[select.selectedIndex].text
+
+            // agar size select nahi kiya
+            if (select.value === "") {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Select Size",
+                    text: "Please choose pizza size first 🍕",
+                    confirmButtonColor: "#ff512f"
+                })
+                return
+            }
+
+            // size detect
+            let size = text.includes("Small") ? "Small" :
+                text.includes("Medium") ? "Medium" : "Regular"
+
+            itemName = name
+            itemPrice = price
+            itemSize = size
+
+            openPopup(name, price)
+
+        }
+
+        /* POPUP OPEN */
+
+        function openPopup(name, price) {
+            itemName = name
+            itemPrice = price
+            itemSize = itemSize || ""   // reset safe
+
+            document.getElementById("popup").classList.add("active")
+            updateTotal()
+        }
+
+        /* CLOSE */
+
+        function closePopup() {
+            document.getElementById("popup").classList.remove("active")
+        }
+
+        /* QUANTITY */
+
+        function increaseQty() {
+            let q = document.getElementById("quantity")
+            q.value++
+            updateTotal()
+        }
+
+        function decreaseQty() {
+            let q = document.getElementById("quantity")
+            if (q.value > 1) {
+                q.value--
+                updateTotal()
+            }
+        }
+
+        /* TOTAL */
+
+        function updateTotal() {
+            let q = document.getElementById("quantity").value
+
+            if (itemPrice == 0) {
+                document.getElementById("totalPrice").innerText = "Price: As per MRP"
+            } else {
+                document.getElementById("totalPrice").innerText =
+                    "Total: ₹" + (q * itemPrice)
+            }
+        }
+
+        /* SEND ORDER */
+
+        function sendOrder() {
+
+            let name = document.getElementById("name").value
+            let address = document.getElementById("address").value
+            let phone = document.getElementById("phone").value
+            let quantity = document.getElementById("quantity").value
+
+            if (!name || !address || !phone) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Missing Details",
+                    text: "Please fill all details properly",
+                    confirmButtonColor: "#ff512f"
+                })
+                return
+            }
+
+            let sizeLine = itemSize ? "Size: " + itemSize + "\n" : ""
+
+            let totalLine = itemPrice == 0
+                ? "Price: As per MRP\n\n"
+                : "Total: ₹" + (quantity * itemPrice) + "\n\n"
+
+            let msg =
+                "Hello Foodland Cafe\n\n" +
+                "Item: " + itemName + "\n" +
+                sizeLine +
+                "Qty: " + quantity + "\n" +
+                totalLine +
+                "Name: " + name + "\n" +
+                "Address: " + address + "\n" +
+                "Phone: " + phone
+
+            Swal.fire({
+                icon: "success",
+                title: "Order Placed 🚀",
+                text: "Opening WhatsApp...",
+                timer: 1500,
+                showConfirmButton: false
+            })
+
+            setTimeout(() => {
+                window.open("https://wa.me/918442004815?text=" + encodeURIComponent(msg))
+            }, 1500)
+
+        }
+    </script>
 
 </body>
+
 </html>
-<!-- ================= SANDWICH ================= -->
-
-<div class="category">🥪 Sandwich</div>
-<div class="menu">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600">
-<h4>Veg Sandwich</h4>
-<p class="price">₹39</p>
-<button class="order-btn" onclick="orderNow('Veg Sandwich',39)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600">
-<h4>Veg Green Sandwich</h4>
-<p class="price">₹50</p>
-<button class="order-btn" onclick="orderNow('Veg Green Sandwich',50)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600">
-<h4>Veg Cheese Green Sandwich</h4>
-<p class="price">₹70</p>
-<button class="order-btn" onclick="orderNow('Veg Cheese Green Sandwich',70)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600">
-<h4>Jumbo Sandwich</h4>
-<p class="price">₹120</p>
-<button class="order-btn" onclick="orderNow('Jumbo Sandwich',120)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600">
-<h4>Cheese Sandwich</h4>
-<p class="price">₹80</p>
-<button class="order-btn" onclick="orderNow('Cheese Sandwich',80)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600">
-<h4>Paneer Sandwich</h4>
-<p class="price">₹99</p>
-<button class="order-btn" onclick="orderNow('Paneer Sandwich',99)">Order Now</button>
-</div>
-
-</div>
-
-
-<!-- ================= CHINESE ================= -->
-
-<div class="category">🍜 Chinese</div>
-<div class="menu">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600">
-<h4>Veg Chowmein (Small)</h4>
-<p class="price">₹40</p>
-<button class="order-btn" onclick="orderNow('Veg Chowmein Small',40)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600">>
-<h4>Veg Chowmein (Medium)</h4>
-<p class="price">₹70</p>
-<button class="order-btn" onclick="orderNow('Veg Chowmein Medium',70)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600">
-<h4>Veg Hakka Noodles</h4>
-<p class="price">₹80</p>
-<button class="order-btn" onclick="orderNow('Veg Hakka Noodles',80)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Manchurian.jpg">
-<h4>Veg Manchurian (Gravy)</h4>
-<p class="price">₹100</p>
-<button class="order-btn" onclick="orderNow('Veg Manchurian Gravy',100)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600">
-<h4>Veg Manchurian (Dry)</h4>
-<p class="price">₹120</p>
-<button class="order-btn" onclick="orderNow('Veg Manchurian Dry',120)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600">
-<h4>Honey Chilli Potato</h4>
-<p class="price">₹80</p>
-<button class="order-btn" onclick="orderNow('Honey Chilli Potato',80)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600">
-<h4>Plain Maggi</h4>
-<p class="price">₹40</p>
-<button class="order-btn" onclick="orderNow('Plain Maggi',40)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600">
-<h4>Veg Maggi</h4>
-<p class="price">₹60</p>
-<button class="order-btn" onclick="orderNow('Veg Maggi',60)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600">
-<h4>Veg Masala Maggi</h4>
-<p class="price">₹70</p>
-<button class="order-btn" onclick="orderNow('Veg Masala Maggi',70)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600">
-<h4>Cheese Maggi</h4>
-<p class="price">₹90</p>
-<button class="order-btn" onclick="orderNow('Cheese Maggi',90)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600">
-<h4>Tandoori Maggi</h4>
-<p class="price">₹90</p>
-<button class="order-btn" onclick="orderNow('Tandoori Maggi',90)">Order Now</button>
-</div>
-
-</div>
-
-
-<!-- ================= FRIES ================= -->
-
-<div class="category">🍟 Fries</div>
-<div class="menu">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?w=600">
-<h4>Fries With Sauce</h4>
-<p class="price">₹50</p>
-<button class="order-btn" onclick="orderNow('Fries With Sauce',50)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?w=600">
-<h4>Peri Peri Fries</h4>
-<p class="price">₹60</p>
-<button class="order-btn" onclick="orderNow('Peri Peri Fries',60)">Order Now</button>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?w=600">
-<h4>Peri Peri Masala Fries</h4>
-<p class="price">₹80</p>
-<button class="order-btn" onclick="orderNow('Peri Peri Masala Fries',80)">Order Now</button>
-</div>
-
